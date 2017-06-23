@@ -17,8 +17,9 @@
   <tbody>
     <% @movies.each do |movie| %>
       <tr>
+        <td><%= image_tag movie.image.url(:medium) %></td>
         <td><%= movie.title %></td>
-        <td><%= movie.description %></td>
+        <td><%= truncate(movie.description, :length => 70) %></td>
         <td><%= movie.movie_length %></td>
         <td><%= movie.director %></td>
         <td><%= movie.rating %></td>
