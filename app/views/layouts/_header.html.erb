@@ -1,5 +1,5 @@
 <nav class="navbar navbar-inverse" role="navigation">
-  <div class="container">
+  <div class="container container">
     <div class="navbar-header">
       <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
@@ -15,16 +15,15 @@
         <% if user_signed_in? %>
           <li><%= link_to "New Movie", new_movie_path, class: "active" %></li>
           <li><%= link_to "Account", edit_user_registration_path %></li>
+          <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
         <% else %>
           <li><%= link_to "Sign Up", new_user_registration_path, class: "active" %></li>
           <li><%= link_to "Sign In", new_user_session_path, class: "active" %></li>
         <% end %>
       </ul>
       <%= form_tag search_movies_path, method: :get, class: "navbar-form navbar-right search-form", role: "search" do %>
-        <p>
-          <%= text_field_tag :search, params[:search], class: "form-control" %>
-          <%= submit_tag "Search", name: nil, class: "btn btn-danger" %>
-        </p>
+        <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search a movie" %>
+        <%= submit_tag "Search", name: nil, class: "btn btn-danger" %>
       <% end %>
     </div>
   </div>
